@@ -1,8 +1,9 @@
 package com.studenckie.apartamenty.adapterlist;
 
+import android.os.Parcel;
 import android.os.Parcelable;
 
-public class House{
+public class House implements Parcelable {
     private String name;
     private int pictureId;
     private double price;
@@ -20,6 +21,15 @@ public class House{
         return 0;
     }
 
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(name);
+        parcel.writeInt(pictureId);
+        parcel.writeDouble(price);
+        parcel.writeString(description);
+    }
+
+
     public String getName() {
         return name;
     }
@@ -32,8 +42,8 @@ public class House{
         return pictureId;
     }
 
-    public void setPicture_id(int picture_id) {
-        this.pictureId = picture_id;
+    public void setPictureId(int pictureId) {
+        this.pictureId = pictureId;
     }
 
     public double getPrice() {
