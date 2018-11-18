@@ -12,6 +12,11 @@ import android.widget.TextView;
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
     private List<String> values;
 
+    public interface OnItemClickListener {
+        void onItemClick(House item);
+    }
+
+
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder
@@ -22,22 +27,24 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         public View layout;
 
 
+        void bind(final House house, final OnItemClickListener listener) {
+            this.house = house;
+            recipe_name.setText(house.getHouse());
+            recipe_pic.setImageResource(recipe.getRecipe_pic_id());
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.onItemClick(recipe);
+                }
+            });
+        }
+
         public ViewHolder(View v) {
             super(v);
             layout = v;
             txtHeader = (TextView) v.findViewById(R.id.firstLine);
             txtFooter = (TextView) v.findViewById(R.id.secondLine);
         }
-    }
-
-    public void add(int position, String item) {
-        values.add(position, item);
-        notifyItemInserted(position);
-    }
-
-    public void remove(int position) {
-        values.remove(position);
-        notifyItemRemoved(position);
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
@@ -47,13 +54,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     // Create new views (invoked by the layout manager)
     @Override
-    public RecyclerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
-                                                   int viewType) {
+    public RecyclerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // create a new view
-        LayoutInflater inflater = LayoutInflater.from(
-                parent.getContext());
-        View v =
-                inflater.inflate(R.layout.house_page, parent, false);
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+        View v = inflater.inflate(R.layout.houses_list, parent, false);
         // set the view's size, margins, paddings and layout parameters
         ViewHolder vh = new ViewHolder(v);
         return vh;
@@ -66,13 +70,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         // - replace the contents of the view with that element
         final String name = values.get(position);
         holder.txtHeader.setText(name);
-        holder.txtHeader.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                remove(position);
-            }
-        });
-
         holder.txtFooter.setText("Footer: " + name);
     }
 

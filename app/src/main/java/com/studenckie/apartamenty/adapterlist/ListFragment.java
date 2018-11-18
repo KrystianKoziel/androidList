@@ -1,4 +1,9 @@
 package com.studenckie.apartamenty.adapterlist;
 
-public class ListFragment {
+import android.support.v4.app.Fragment;
+import android.view.View;
+
+public class ListFragment extends Fragment {
+
+
 }
