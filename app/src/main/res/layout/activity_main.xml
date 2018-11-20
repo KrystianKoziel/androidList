@@ -18,13 +18,13 @@
 
 
         <FrameLayout
-            android:id="@+id/recipes_list_fragment"
+            android:id="@+id/list_fragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:layout="@layout/houses_list" />
 
         <FrameLayout
-            android:id="@+id/recipe_details_fragment"
+            android:id="@+id/details_fragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:layout="@layout/house_page" />

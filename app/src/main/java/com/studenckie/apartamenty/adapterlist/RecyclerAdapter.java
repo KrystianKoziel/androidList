@@ -1,82 +1,84 @@
 package com.studenckie.apartamenty.adapterlist;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
-    private List<String> values;
+    Context context;
+    List<House> houses;
+    private final OnItemClickListener listener;
+
+    public RecyclerAdapter(Context context, OnItemClickListener listener) {
+        this.context = context;
+        houses = new ArrayList<>();
+        this.listener = listener;
+    }
 
     public interface OnItemClickListener {
-        void onItemClick(House item);
+        void onItemClick(House house);
     }
 
 
-    // Provide a reference to the views for each data item
-    // Complex data items may need more than one view per item, and
-    // you provide access to all the views for a data item in a view holder
     public class ViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
         public TextView txtHeader;
         public TextView txtFooter;
-        public View layout;
+        public ImageView image;
+        public House house;
 
+        public ViewHolder(View v) {
+            super(v);
+            txtHeader = v.findViewById(R.id.firstLine);
+            txtFooter = v.findViewById(R.id.secondLine);
+            image = v.findViewById(R.id.icon);
+        }
 
         void bind(final House house, final OnItemClickListener listener) {
             this.house = house;
-            recipe_name.setText(house.getHouse());
-            recipe_pic.setImageResource(recipe.getRecipe_pic_id());
+            String price = Double.toString(house.getPrice());
+
+            txtHeader.setText(house.getName());
+            txtFooter.setText(price);
+            image.setImageResource(house.getPictureId());
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    listener.onItemClick(recipe);
+                    listener.onItemClick(house);
                 }
             });
         }
 
-        public ViewHolder(View v) {
-            super(v);
-            layout = v;
-            txtHeader = (TextView) v.findViewById(R.id.firstLine);
-            txtFooter = (TextView) v.findViewById(R.id.secondLine);
-        }
     }
 
-    // Provide a suitable constructor (depends on the kind of dataset)
-    public RecyclerAdapter(List<String> myDataset) {
-        values = myDataset;
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.house_for_list, parent, false);
+        ViewHolder viewHolder = new ViewHolder(view);
+
+        return viewHolder;
     }
 
-    // Create new views (invoked by the layout manager)
     @Override
-    public RecyclerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        // create a new view
-        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View v = inflater.inflate(R.layout.houses_list, parent, false);
-        // set the view's size, margins, paddings and layout parameters
-        ViewHolder vh = new ViewHolder(v);
-        return vh;
+    public void onBindViewHolder(ViewHolder holder, int position) {
+        holder.bind(houses.get(position), listener);
     }
 
-    // Replace the contents of a view (invoked by the layout manager)
-    @Override
-    public void onBindViewHolder(ViewHolder holder, final int position) {
-        // - get element from your dataset at this position
-        // - replace the contents of the view with that element
-        final String name = values.get(position);
-        holder.txtHeader.setText(name);
-        holder.txtFooter.setText("Footer: " + name);
-    }
-
-    // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
-        return values.size();
+        return houses.size();
     }
+
+    public void setHouses(List<House> houses) {
+        this.houses = houses;
+    }
+
 
 }
