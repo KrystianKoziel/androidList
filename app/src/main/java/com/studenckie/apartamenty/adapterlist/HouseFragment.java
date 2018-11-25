@@ -1,6 +1,6 @@
 package com.studenckie.apartamenty.adapterlist;
 
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -55,7 +55,7 @@ public class HouseFragment extends Fragment {
             house = (House) getArguments().get("house");
             if (house != null) {
                 houseImage.setImageResource(house.getPictureId());
-                housePrice.setText(Double.toString(house.getPrice()));
+                housePrice.setText(Integer.toString(house.getPrice()));
                 houseDescription.setText(house.getDescription());
             }
         }

@@ -18,15 +18,16 @@ public class HouseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_house_page);
 
-        houseImage = (ImageView) findViewById(R.id.house_view);
-        housePrice = (TextView) findViewById(R.id.house_price);
-        houseDescription = (TextView) findViewById(R.id.house_description);
+        houseImage = findViewById(R.id.house_view);
+        housePrice = findViewById(R.id.house_price);
+        houseDescription = findViewById(R.id.house_description);
 
         Intent intent = getIntent();
         House house = intent.getParcelableExtra("house");
         setTitle(house.getName());
         houseImage.setImageResource(house.getPictureId());
-        housePrice.setText(Double.toString(house.getPrice()));
+        housePrice.setText(Integer.toString(house.getPrice()));
+        houseDescription.setText(house.getDescription());
     }
 
 

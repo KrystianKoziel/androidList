@@ -6,10 +6,10 @@ import android.os.Parcelable;
 public class House implements Parcelable {
     private String name;
     private int pictureId;
-    private double price;
+    private int price;
     private String description;
 
-    public House(String name, int pictureId, int price, String description){
+    public House(String name, int pictureId, int price, String description) {
         this.name = name;
         this.pictureId = pictureId;
         this.price = price;
@@ -46,11 +46,11 @@ public class House implements Parcelable {
         this.pictureId = pictureId;
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
@@ -60,5 +60,24 @@ public class House implements Parcelable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+    public static final Parcelable.Creator<House> CREATOR = new Parcelable.Creator<House>() {
+
+        @Override
+        public House createFromParcel(Parcel parcel) {
+            return new House(parcel);
+        }
+
+        @Override
+        public House[] newArray(int size) {
+            return new House[size];
+        }
+    };
+
+    private House(Parcel parcel) {
+        name = parcel.readString();
+        pictureId = parcel.readInt();
+        price = parcel.readInt();
+        description = parcel.readString();
     }
 }

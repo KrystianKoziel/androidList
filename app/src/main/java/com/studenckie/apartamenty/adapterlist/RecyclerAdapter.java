@@ -1,8 +1,5 @@
 package com.studenckie.apartamenty.adapterlist;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
     Context context;
@@ -37,14 +36,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
         public ViewHolder(View v) {
             super(v);
-            txtHeader = v.findViewById(R.id.firstLine);
-            txtFooter = v.findViewById(R.id.secondLine);
-            image = v.findViewById(R.id.icon);
+            txtHeader = v.findViewById(R.id.house_name);
+            txtFooter = v.findViewById(R.id.house_price);
+            image = v.findViewById(R.id.house_view);
         }
 
         void bind(final House house, final OnItemClickListener listener) {
             this.house = house;
-            String price = Double.toString(house.getPrice());
+            String price = Integer.toString(house.getPrice());
 
             txtHeader.setText(house.getName());
             txtFooter.setText(price);
@@ -61,9 +60,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.house_for_list, parent, false);
-        ViewHolder viewHolder = new ViewHolder(view);
+        ViewHolder vHolder = new ViewHolder(view);
 
-        return viewHolder;
+        return vHolder;
     }
 
     @Override

@@ -1,10 +1,9 @@
 package com.studenckie.apartamenty.adapterlist;
 
-
+import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -27,9 +26,9 @@ public class HousesList extends Fragment implements RecyclerAdapter.OnItemClickL
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              Bundle savedInstanceState) {
-        View recipesListFragment = inflater.inflate(R.layout.houses_list, container, false);
-        myRecyclerView = recipesListFragment.findViewById(R.id.houses_list);
-        return recipesListFragment;
+        View housesListFragment = inflater.inflate(R.layout.houses_list, container, false);
+        myRecyclerView = housesListFragment.findViewById(R.id.houses);
+        return housesListFragment;
     }
 
     @Override
@@ -52,7 +51,7 @@ public class HousesList extends Fragment implements RecyclerAdapter.OnItemClickL
             getActivity().getFragmentManager().popBackStack();
         }
         HouseFragment houseFragment = new HouseFragment();
-        houseFragment.setTargetFragment(HouseFragment.this, getTargetRequestCode());
+        houseFragment.setTargetFragment(HousesList.this, getTargetRequestCode());
         Bundle args = new Bundle();
         args.putParcelable("recipe", item);
         houseFragment.setArguments(args);
@@ -66,7 +65,7 @@ public class HousesList extends Fragment implements RecyclerAdapter.OnItemClickL
         super.onActivityResult(requestCode, resultCode, data);
 
         if (resultCode == RESULT_OK) {
-            House house = data.getParcelableExtra("recipe_to_remove");
+            House house = data.getParcelableExtra("house_to_remove");
             Iterator<House> iterator = houses.iterator();
             while (iterator.hasNext()) {
                 House house1 = iterator.next();
@@ -76,6 +75,7 @@ public class HousesList extends Fragment implements RecyclerAdapter.OnItemClickL
                 }
             }
             recyclerAdapter.notifyDataSetChanged();
+            ((MainActivity) getActivity()).removeHouse(house);
         }
     }
 }
