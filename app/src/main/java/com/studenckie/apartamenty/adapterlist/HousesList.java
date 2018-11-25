@@ -53,7 +53,7 @@ public class HousesList extends Fragment implements RecyclerAdapter.OnItemClickL
         HouseFragment houseFragment = new HouseFragment();
         houseFragment.setTargetFragment(HousesList.this, getTargetRequestCode());
         Bundle args = new Bundle();
-        args.putParcelable("recipe", item);
+        args.putParcelable("house", item);
         houseFragment.setArguments(args);
         getActivity().getFragmentManager().beginTransaction()
                 .replace(R.id.details_fragment, houseFragment)
