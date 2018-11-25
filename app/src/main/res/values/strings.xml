@@ -1,3 +1,167 @@
 <resources>
     <string name="app_name">AdapterList</string>
+
+        <array name="house1">
+            <item name="names">Tanie mieszkanie</item>
+            <item name="house_pics">@drawable/a1</item>
+            <item name="price">1000</item>
+            <item name="descriptions">Bardzo fajne, tanie mieszkanie, Polecam Leszek</item>
+        </array>
+
+        <array name="house2">
+            <item name="names">Drogie mieszkanie</item>
+            <item name="house_pics">@drawable/a2</item>
+            <item name="price">1100</item>
+            <item name="descriptions">Nie tak fajne ale polecam. Marian</item>
+        </array>
+
+        <array name="house3">
+            <item name="names">Wcale nie drogie mieszkanie</item>
+            <item name="house_pics">@drawable/a3</item>
+            <item name="price">1200</item>
+            <item name="descriptions">Duze, przestronne i ladne, polecam Kasia</item>
+        </array>
+
+        <array name="house4">
+            <item name="names">Drogi dom</item>
+            <item name="house_pics">@drawable/a4</item>
+            <item name="price">1300</item>
+            <item name="descriptions">Najgorsze mieszkania do wynajęcia, nie polecam, Adam</item>
+        </array>
+
+        <array name="house5">
+            <item name="names">Tani dom</item>
+            <item name="house_pics">@drawable/a5</item>
+            <item name="price">1400</item>
+            <item name="descriptions">Duze i przestronne.</item>
+        </array>
+
+        <array name="house6">
+            <item name="names">Fajne mieszkanie</item>
+            <item name="house_pics">@drawable/a1</item>
+            <item name="price">1500</item>
+            <item name="descriptions">Brak wifi i toalety ale ladna okolica.</item>
+        </array>
+
+        <array name="house7">
+            <item name="names">Dobry dojazd do centrum</item>
+            <item name="house_pics">@drawable/a2</item>
+            <item name="price">1600</item>
+            <item name="descriptions">Ciekawe otoczenie</item>
+        </array>
+
+        <array name="house8">
+            <item name="names">5 minut do metra</item>
+            <item name="house_pics">@drawable/a3</item>
+            <item name="price">1700</item>
+            <item name="descriptions">Bogactwo w srodku i na zewnatrz</item>
+        </array>
+
+        <array name="house9">
+            <item name="names">Mieszkanie na mordorze</item>
+            <item name="house_pics">@drawable/a4</item>
+            <item name="price">1800</item>
+            <item name="descriptions">Dziwne, ale fajne. Polecam Angelika</item>
+        </array>
+
+        <array name="house10">
+            <item name="names">Nowe mieszkanie</item>
+            <item name="house_pics">@drawable/a5</item>
+            <item name="price">1900</item>
+            <item name="descriptions">Ciekawe skad wzial na to pienionzki? Nie polecam, K.</item>
+        </array>
+        <array name="house11">
+            <item name="names">Stare mieszkanie</item>
+            <item name="house_pics">@drawable/a1</item>
+            <item name="price">2000</item>
+            <item name="descriptions">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque turpis metus, interdum et aliquam a, semper tempus tellus.</item>
+        </array>
+
+        <array name="house12">
+            <item name="names">Mieszkanie w Radomiu</item>
+            <item name="house_pics">@drawable/a2</item>
+            <item name="price">2100</item>
+            <item name="descriptions">Suspendisse fringilla magna eget sapien ultricies, ut porta dolor hendrerit.</item>
+        </array>
+
+        <array name="house13">
+            <item name="names">Dziwny dom</item>
+            <item name="house_pics">@drawable/a3</item>
+            <item name="price">2200</item>
+            <item name="descriptions">Donec porttitor fringilla rutrum. Donec pharetra ullamcorper tortor ac suscipit.</item>
+        </array>
+
+        <array name="house14">
+            <item name="names">Fajny dom</item>
+            <item name="house_pics">@drawable/a4</item>
+            <item name="price">2300</item>
+            <item name="descriptions">Donec neque ipsum, tempor ac porttitor et, fringilla ac tellus.</item>
+        </array>
+
+        <array name="house15">
+            <item name="names">Dobre mieszkanie</item>
+            <item name="house_pics">@drawable/a5</item>
+            <item name="price">2400</item>
+            <item name="descriptions"></item>
+        </array>
+        <array name="house16">
+            <item name="names">Mieszkanie 1</item>
+            <item name="house_pics">@drawable/a1</item>
+            <item name="price">2500</item>
+            <item name="descriptions">Nam maximus finibus mattis.</item>
+        </array>
+
+        <array name="house17">
+            <item name="names">Mieszkanie 2</item>
+            <item name="house_pics">@drawable/a2</item>
+            <item name="price">2600</item>
+            <item name="descriptions">Nam maximus finibus mattis.</item>
+        </array>
+
+        <array name="house18">
+            <item name="names">Mieszkanie 3</item>
+            <item name="house_pics">@drawable/a3</item>
+            <item name="price">2700</item>
+            <item name="descriptions">Donec congue, turpis egestas scelerisque suscipit</item>
+        </array>
+
+        <array name="house19">
+            <item name="names">Mieszkanie 4</item>
+            <item name="house_pics">@drawable/a4</item>
+            <item name="price">2800</item>
+            <item name="descriptions">mollis magna non est luctus hendrerit. Sed imperdiet ornare consectetur.</item>
+        </array>
+
+        <array name="house20">
+            <item name="names">Mieszkanie 5</item>
+            <item name="house_pics">@drawable/a5</item>
+            <item name="price">2900</item>
+            <item name="descriptions">Donec mattis, nisi ac laoreet volutpat, lectus massa venenatis elit,\n eu tempus neque orci blandit elit.\n Donec blandit sit amet nisi eu mattis.</item>
+        </array>
+
+
+    <array name="houses">
+        <item>@array/house1</item>
+        <item>@array/house2</item>
+        <item>@array/house3</item>
+        <item>@array/house4</item>
+        <item>@array/house5</item>
+        <item>@array/house6</item>
+        <item>@array/house7</item>
+        <item>@array/house8</item>
+        <item>@array/house9</item>
+        <item>@array/house10</item>
+        <item>@array/house11</item>
+        <item>@array/house12</item>
+        <item>@array/house13</item>
+        <item>@array/house14</item>
+        <item>@array/house15</item>
+        <item>@array/house16</item>
+        <item>@array/house17</item>
+        <item>@array/house18</item>
+        <item>@array/house19</item>
+        <item>@array/house20</item>
+
+    </array>
+
 </resources>

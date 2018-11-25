@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/white"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.studenckie.apartamenty.adapterlist.HouseActivity">
+    tools:context="com.studenckie.apartamenty.adapterlist.HouseFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -19,7 +19,7 @@
                 android:id="@+id/house_view"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:src="@drawable/mieszkanie1" />
+                android:src="@drawable/a1" />
 
             <TextView
                 android:id="@+id/house_description"
